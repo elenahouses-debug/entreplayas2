@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <title>index.html - Residencial Los Olivos</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: { sans: ['"Plus Jakarta Sans"', 'sans-serif'] },
+          colors: {
+            brand: {
+              50: '#f0fdf4',
+              100: '#dcfce7',
+              500: '#15803d',
+              700: '#0f5132',
+              800: '#0c4128',
+              900: '#082f1d'
+            }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    body { font-family: 'Plus Jakarta Sans', sans-serif; -webkit-tap-highlight-color: transparent; user-select: none; }
+    .screen-view { display: none; opacity: 0; transition: opacity 0.2s ease-in-out; }
+    .screen-view.active { display: flex; flex-direction: column; opacity: 1; }
+  </style>
+</head>
+<body class="bg-slate-900 min-h-screen flex justify-center items-center sm:py-6 text-slate-800 antialiased selection:bg-brand-500 selection:text-white">
+
+  <div class="w-full max-w-[420px] bg-[#f8f9ff] h-screen sm:h-[870px] sm:rounded-[42px] shadow-2xl flex flex-col relative overflow-hidden sm:border-[6px] sm:border-slate-800">
+    
+    <!-- Cabecera Oficial index.html -->
+    <header class="sticky top-0 z-30 bg-[#f8f9ff]/95 backdrop-blur-md border-b border-slate-200/70 px-4 pt-3.5 pb-2.5">
+      <div class="flex items-center justify-between gap-2">
+        <div class="flex items-center gap-2.5 min-w-0">
+          <div class="w-10 h-10 rounded-xl bg-slate-950 flex items-center justify-center p-1.5 shrink-0 shadow-sm border border-slate-800">
+            <svg class="w-full h-full text-cyan-400" viewBox="0 0 100 100" fill="none">
+              <rect x="25" y="12" width="50" height="78" rx="4" fill="#0f172a" stroke="#38bdf8" stroke-width="3"/>
+              <g fill="#38bdf8">
+                <rect x="32" y="20" width="8" height="3" rx="1"/><rect x="46" y="20" width="8" height="3" rx="1"/><rect x="60" y="20" width="8" height="3" rx="1"/>
+                <rect x="32" y="27" width="8" height="3" rx="1"/><rect x="46" y="27" width="8" height="3" rx="1" fill="#bae6fd"/><rect x="60" y="27" width="8" height="3" rx="1"/>
+                <rect x="32" y="34" width="8" height="3" rx="1"/><rect x="46" y="34" width="8" height="3" rx="1"/><rect x="60" y="34" width="8" height="3" rx="1"/>
+                <rect x="32" y="41" width="8" height="3" rx="1" fill="#bae6fd"/><rect x="46" y="41" width="8" height="3" rx="1"/><rect x="60" y="41" width="8" height="3" rx="1"/>
+                <rect x="32" y="48" width="8" height="3" rx="1"/><rect x="46" y="48" width="8" height="3" rx="1"/><rect x="60" y="48" width="8" height="3" rx="1" fill="#bae6fd"/>
+                <rect x="32" y="55" width="8" height="3" rx="1"/><rect x="46" y="55" width="8" height="3" rx="1"/><rect x="60" y="55" width="8" height="3" rx="1"/>
+                <rect x="32" y="62" width="8" height="3" rx="1"/><rect x="46" y="62" width="8" height="3" rx="1" fill="#bae6fd"/><rect x="60" y="62" width="8" height="3" rx="1"/>
+                <rect x="32" y="69" width="8" height="3" rx="1"/><rect x="46" y="69" width="8" height="3" rx="1"/><rect x="60" y="69" width="8" height="3" rx="1"/>
+                <rect x="32" y="76" width="8" height="3" rx="1"/><rect x="46" y="76" width="8" height="3" rx="1"/><rect x="60" y="76" width="8" height="3" rx="1"/>
+              </g>
+              <line x1="50" y1="4" x2="50" y2="12" stroke="#38bdf8" stroke-width="3" stroke-linecap="round"/>
+            </svg>
+          </div>
+          <div class="truncate">
+            <span class="text-[10px] font-mono font-bold uppercase tracking-wider text-emerald-600 block truncate">FICHERO FUENTE</span>
+            <h1 id="headerTitle" class="text-base font-mono font-extrabold text-slate-900 leading-tight">index.html</h1>
+          </div>
+        </div>
+
+        <div class="flex items-center gap-1.5 shrink-0">
+          <button id="downloadIndexBtn" class="flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-emerald-600 hover:bg-emerald-700 text-white text-xs font-bold shadow-sm transition-all active:scale-95" title="Descargar index.html">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
+            </svg>
+            <span>Descargar</span>
+          </button>
+          <button onclick="toggleQuickMenu()" class="p-2 rounded-xl bg-slate-100 hover:bg-slate-200 text-slate-700" title="Menú">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </button>
+        </div>
+      </div>
+
+      <!-- Barra indicadora de index.html para Netlify -->
+      <div class="mt-2 flex items-center justify-between bg-emerald-50 border border-emerald-200 px-2.5 py-1.5 rounded-xl">
+        <div class="flex items-center gap-2 min-w-0">
+          <span class="flex h-2 w-2 relative shrink-0">
+            <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-emerald-400 opacity-75"></span>
+            <span class="relative inline-flex rounded-full h-2 w-2 bg-emerald-500"></span>
+          </span>
+          <span class="text-[11px] font-mono font-bold text-emerald-900 truncate">Listo para Netlify Drop</span>
+        </div>
+        <span class="text-[9px] font-mono font-bold uppercase bg-emerald-700 text-white px-2 py-0.5 rounded-md">index.html</span>
+      </div>
+    </header>
+
+    <!-- Modal Menú de Secciones -->
+    <div id="quickMenuModal" class="hidden absolute inset-0 z-50 bg-slate-900/60 backdrop-blur-sm p-4 flex flex-col justify-end">
+      <div class="bg-white rounded-3xl p-5 shadow-2xl space-y-4 max-h-[85vh] overflow-y-auto">
+        <div class="flex items-center justify-between pb-2 border-b border-slate-100">
+          <div>
+            <h3 class="text-base font-bold text-slate-900">Navegación de index.html</h3>
+            <p class="text-xs text-slate-500">Suite integral de la comunidad</p>
+          </div>
+          <button onclick="toggleQuickMenu()" class="p-1.5 text-slate-400 rounded-full bg-slate-100">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+            </svg>
+          </button>
+        </div>
+        <div class="grid grid-cols-1 gap-2">
+          <button onclick="navigate('tablon')" class="flex items-center justify-between p-3 rounded-2xl hover:bg-slate-50 border border-slate-200 text-left">
+            <span class="text-xs font-bold text-slate-800">📢 1. Tablón de Anuncios y Avisos</span>
+            <span class="text-slate-400 text-xs">→</span>
+          </button>
+          <button onclick="navigate('incidencias')" class="flex items-center justify-between p-3 rounded-2xl hover:bg-slate-50 border border-slate-200 text-left">
+            <span class="text-xs font-bold text-slate-800">⚠️ 2. Gestión de Incidencias</span>
+            <span class="text-slate-400 text-xs">→</span>
+          </button>
+          <button onclick="navigate('contactos')" class="flex items-center justify-between p-3 rounded-2xl hover:bg-slate-50 border border-slate-200 text-left">
+            <span class="text-xs font-bold text-slate-800">📇 3. Directorio y Buzón Vecinal</span>
+            <span class="text-slate-400 text-xs">→</span>
+          </button>
+          <button onclick="navigate('documentos')" class="flex items-center justify-between p-3 rounded-2xl bg-emerald-50 border border-emerald-200 text-left">
+            <span class="text-xs font-bold text-emerald-900">📁 4. Documentos de Presidencia</span>
+            <span class="text-emerald-700 text-xs font-bold">Activo</span>
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Contenido Scrollable -->
+    <main class="flex-1 overflow-y-auto px-4 py-4 space-y-4 pb-24">
+
+      <!-- PANTALLA 1: TABLÓN -->
+      <section id="view-tablon" class="screen-view space-y-4">
+        <div class="p-3.5 rounded-2xl bg-amber-50 border border-amber-200 text-amber-950">
+          <h3 class="text-xs font-bold text-amber-900">Mantenimiento Otis Ascensores</h3>
+          <p class="text-[11px] text-amber-800 mt-1">Revisión periódica obligatoria programada mañana a las 08:30h.</p>
+        </div>
+        <article class="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm space-y-2">
+          <span class="text-[10px] font-extrabold uppercase bg-emerald-50 text-emerald-800 px-2 py-0.5 rounded">Convocatoria Oficial</span>
+          <h2 class="text-sm font-bold text-slate-900">Junta Extraordinaria: Bajantes y Presupuestos</h2>
+          <p class="text-xs text-slate-600">Reunión ordinaria en el portal principal para votar presupuestos.</p>
+        </article>
+      </section>
+
+      <!-- PANTALLA 2: INCIDENCIAS -->
+      <section id="view-incidencias" class="screen-view space-y-4">
+        <div class="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm space-y-2">
+          <h2 class="text-base font-bold text-slate-900">Reportar Avería o Daño</h2>
+          <input type="text" id="incidenciaTitulo" placeholder="Ej: Fuga de agua en rellano Planta 3" class="w-full text-xs px-3 py-2.5 rounded-xl border border-slate-200">
+          <button onclick="simularIncidencia()" class="w-full bg-emerald-700 text-white font-bold text-xs py-2.5 rounded-xl">Crear Ticket Inmediato</button>
+        </div>
+        <article class="bg-white rounded-2xl border-2 border-emerald-500/40 p-4 shadow-sm space-y-2">
+          <div class="flex justify-between items-center">
+            <span class="text-xs font-extrabold text-slate-900">#SIN-MAP-2024-884920</span>
+            <span class="bg-emerald-100 text-emerald-800 text-[10px] font-bold px-2 py-0.5 rounded">En Curso</span>
+          </div>
+          <p class="text-xs text-slate-600">Siniestro de agua atendido por Mapfre. Fontanero asignado.</p>
+        </article>
+      </section>
+
+      <!-- PANTALLA 3: CONTACTOS -->
+      <section id="view-contactos" class="screen-view space-y-4">
+        <div class="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm space-y-3">
+          <h3 class="text-sm font-bold text-slate-900">Administrador Colegiado</h3>
+          <p class="text-xs text-slate-500">Gestión Integral Mar Menor S.L. (Col. Nº 3.841)</p>
+          <div class="grid grid-cols-2 gap-2">
+            <a href="tel:968000111" class="py-2 rounded-xl bg-slate-100 text-center text-xs font-bold text-slate-800">Llamar</a>
+            <a href="mailto:admin@losolivos.es" class="py-2 rounded-xl bg-emerald-700 text-center text-xs font-bold text-white">Email</a>
+          </div>
+        </div>
+        <div class="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm space-y-2">
+          <h3 class="text-sm font-bold text-slate-900">Buzón de Sugerencias Vecinal</h3>
+          <textarea id="sugerenciaTexto" rows="2" placeholder="Propuesta para la comunidad..." class="w-full text-xs p-2.5 rounded-xl border border-slate-200"></textarea>
+          <button onclick="enviarSugerencia()" class="w-full bg-slate-900 text-white font-bold text-xs py-2 rounded-xl">Enviar Sugerencia</button>
+        </div>
+      </section>
+
+      <!-- PANTALLA 4: DOCUMENTOS Y PRESIDENCIA -->
+      <section id="view-documentos" class="screen-view active space-y-4">
+        <section class="rounded-2xl bg-emerald-50 border border-emerald-100 p-4">
+          <span class="bg-emerald-700 text-white text-[10px] font-bold px-2 py-0.5 rounded-full uppercase font-mono">index.html</span>
+          <h2 class="text-base font-bold text-slate-900 mt-1.5">Órgano de Gobierno Comunitario</h2>
+          <p class="text-xs text-slate-600 mt-0.5">Art. 13 LPH: Representación legal y custodia documental de las 76 viviendas.</p>
+        </section>
+
+        <!-- Subida interactiva -->
+        <section class="bg-white rounded-2xl border border-slate-200 p-4 shadow-sm space-y-3">
+          <div class="flex items-center justify-between">
+            <h2 class="text-base font-bold text-slate-900">Subir Documento Oficial</h2>
+            <span class="text-[10px] font-mono bg-slate-100 px-2 py-0.5 rounded text-slate-600 font-bold">Presidencia</span>
+          </div>
+          <input type="file" id="nativeFileInput" class="hidden" accept=".pdf,.xlsx,.xls,.docx,.jpg,.png">
+          <div id="dropZone" class="border-2 border-dashed border-emerald-300 bg-emerald-50/40 rounded-2xl p-5 text-center cursor-pointer hover:bg-emerald-50/70 transition-colors">
+            <div class="w-10 h-10 mx-auto rounded-full bg-emerald-100 flex items-center justify-center text-emerald-700 mb-2">
+              <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12" />
+              </svg>
+            </div>
+            <p class="text-sm font-bold text-slate-800">Pulsa para seleccionar o arrastra archivo</p>
+            <p class="text-xs text-slate-500 mt-1">PDF, Excel (.xlsx), Word o Imágenes (Máx. 35 MB)</p>
+          </div>
+          <div id="uploadStatusCard" class="hidden p-3 bg-slate-50 rounded-xl border border-slate-200 space-y-2">
+            <p id="fileNameDisplay" class="text-xs font-bold text-slate-800">archivo.pdf</p>
+            <div class="w-full bg-slate-200 rounded-full h-2">
+              <div id="uploadProgressBar" class="bg-emerald-700 h-2 rounded-full w-0 transition-all duration-300"></div>
+            </div>
+            <button id="confirmPublishBtn" class="w-full bg-emerald-700 text-white font-bold text-xs py-2 rounded-xl">Confirmar y Publicar</button>
+          </div>
+        </section>
+      </section>
+
+    </main>
+
+    <!-- Barra de Navegación Inferior -->
+    <nav class="absolute bottom-0 inset-x-0 bg-white/95 backdrop-blur-md border-t border-slate-200 px-2 py-2 flex items-center justify-around z-30">
+      <button id="navBtn-tablon" onclick="navigate('tablon')" class="flex flex-col items-center gap-1 text-slate-400 px-3 py-1">
+        <span class="text-[10px] font-semibold">Tablón</span>
+      </button>
+      <button id="navBtn-incidencias" onclick="navigate('incidencias')" class="flex flex-col items-center gap-1 text-slate-400 px-3 py-1">
+        <span class="text-[10px] font-semibold">Incidencias</span>
+      </button>
+      <button id="navBtn-contactos" onclick="navigate('contactos')" class="flex flex-col items-center gap-1 text-slate-400 px-3 py-1">
+        <span class="text-[10px] font-semibold">Contactos</span>
+      </button>
+      <button id="navBtn-documentos" onclick="navigate('documentos')" class="flex flex-col items-center gap-1 text-emerald-700 px-3 py-1 font-bold">
+        <span class="text-[10px]">Documentos</span>
+      </button>
+    </nav>
+  </div>
+
+  <script>
+    const screens = {
+      tablon: { title: "Tablón de Anuncios", showRole: false },
+      incidencias: { title: "Gestión de Incidencias", showRole: false },
+      contactos: { title: "Contactos y Sugerencias", showRole: false },
+      documentos: { title: "index.html", showRole: true }
+    };
+
+    function navigate(id) {
+      document.querySelectorAll('.screen-view').forEach(v => v.classList.remove('active'));
+      const target = document.getElementById(`view-${id}`);
+      if (target) target.classList.add('active');
+      document.getElementById('headerTitle').textContent = screens[id].title;
+      document.getElementById('quickMenuModal').classList.add('hidden');
+    }
+
+    function toggleQuickMenu() {
+      document.getElementById('quickMenuModal').classList.toggle('hidden');
+    }
+
+    function simularIncidencia() {
+      alert('¡Incidencia registrada con éxito!');
+    }
+
+    function enviarSugerencia() {
+      alert('¡Sugerencia enviada a la Junta de Propietarios!');
+    }
+
+    document.addEventListener('DOMContentLoaded', () => {
+      const dropZone = document.getElementById('dropZone');
+      const input = document.getElementById('nativeFileInput');
+      const downloadBtn = document.getElementById('downloadIndexBtn');
+
+      if (dropZone && input) {
+        dropZone.onclick = () => input.click();
+        input.onchange = (e) => {
+          if (e.target.files.length) {
+            document.getElementById('uploadStatusCard').classList.remove('hidden');
+            document.getElementById('fileNameDisplay').textContent = e.target.files[0].name;
+            document.getElementById('uploadProgressBar').style.width = '100%';
+          }
+        };
+      }
+
+      if (downloadBtn) {
+        downloadBtn.onclick = () => {
+          const htmlContent = `<!DOCTYPE html>\\n` + document.documentElement.outerHTML;
+          const blob = new Blob([htmlContent], { type: 'text/html;charset=utf-8' });
+          const a = document.createElement('a');
+          a.href = URL.createObjectURL(blob);
+          a.download = 'index.html';
+          document.body.appendChild(a);
+          a.click();
+          document.body.removeChild(a);
+        };
+      }
+    });
+  </script>
+</body>
+</html>
